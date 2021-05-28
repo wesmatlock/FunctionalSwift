@@ -1,0 +1,3 @@
+protocol GenericTypeConstructor {
+  associatedtype ParamtricType
+}

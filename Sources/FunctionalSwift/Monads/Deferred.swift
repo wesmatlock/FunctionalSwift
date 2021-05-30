@@ -49,7 +49,7 @@ public struct Deferred<A>: GenericTypeConstructor {
 
 extension Deferred {
 
-  func map<B>(_ f: @escaping (A) -> B) -> Deferred<B> {
+  public func map<B>(_ f: @escaping (A) -> B) -> Deferred<B> {
     Deferred<B>({ callback in
       self.run { callback(f($0)) }
     }, cancel: onCancel)

@@ -31,8 +31,12 @@ public func anyOf<A>(_ predicate: Predicate<A>...) -> Predicate<A> {
   Predicate { a in predicate.contains(where: {$0.contains(a) }) }
 }
 
+public func anyOf<A>(_ predicate: [Predicate<A>]) -> Predicate<A> {
+  Predicate { a in predicate.contains(where: { $0.contains(a) }) }
+}
+
 // MARK: - allOf
-public func allOf<A>(_ predicate: Predicate<A>...) -> Predicate<A> {
+public func allOf<A>(  _ predicate: Predicate<A>...) -> Predicate<A> {
   Predicate { a in predicate.allSatisfy { $0.contains(a) } }
 }
 
